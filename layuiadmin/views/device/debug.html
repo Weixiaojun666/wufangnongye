@@ -1,0 +1,69 @@
+<title>指令下发</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>设备管理</cite></a>
+        <a><cite>指令下发</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">下发指令</div>
+                <div class="layui-card-body">
+                    <form action="" class="layui-form">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">输入指令</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input" lay-verify="required" name="title"
+                                       placeholder="请输入标题" required type="text">
+                            </div>
+                            <button class="layui-btn" lay-filter="formDemo" lay-submit>立即提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="layui-card">
+                <div class="layui-card-header">下发记录</div>
+                <div class="layui-card-body">
+                    <div class="layui-btn-container">
+
+                    </div>
+                    <table class="layui-hide" id="test-table-page"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="devicestate" type="text/html">
+    {{#  if(d.master_outcome == '1'){ }}
+    <span style="color: #009688;">{{ '成功' }}</span>
+    {{#  } else { }}
+    <span style="color: #FF5722;">{{ '失败' }}</span>
+    {{#  } }}
+</script>
+<script>
+    layui.use(['admin', 'table'], function () {
+        var admin = layui.admin
+            , table = layui.table;
+
+        table.render({
+            elem: '#test-table-page'
+            , url: './api/device/debug'
+            , cols: [[
+                {type: 'radio'}
+                , {field: 'master_id', title: '主控id'}
+                , {field: 'issue_order', title: '下发指令', sort: true}
+                , {field: 'down_time', title: '下发时间', sort: true}
+                , {field: 'down_state', title: '下发状态', templet: '#devicestate'}
+                , {field: 'order_Reply', title: '收到回复'}
+            ]]
+            , page: true
+        });
+    });
+</script>

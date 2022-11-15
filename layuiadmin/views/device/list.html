@@ -1,0 +1,63 @@
+<title>设备列表</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>设备管理</cite></a>
+        <a><cite>设备列表</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">设备列表</div>
+                <div class="layui-card-body">
+                    <div class="layui-btn-container">
+                        <button class="layui-btn" data-type="getCheckData">新增</button>
+                        <button class="layui-btn" data-type="getCheckLength">状态</button>
+                        <button class="layui-btn" data-type="isAll">删除</button>
+                    </div>
+                    <table class="layui-hide" id="test-table-page"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="devicestate" type="text/html">
+    {{#  if(d.master_outcome == '1'){ }}
+    <span style="color: #009688;">{{ '在线' }}</span>
+    {{#  } else { }}
+    <span style="color: #FF5722;">{{ '离线' }}</span>
+    {{#  } }}
+</script>
+<script id="setstate" type="text/html">
+    {{#  if(d.master_change == '1'){ }}
+    <span style="color: #009688;">{{ '正常' }}</span>
+    {{#  } else { }}
+    <span style="color: #FF5722;">{{ '停用' }}</span>
+    {{#  } }}
+</script>
+<script>
+    layui.use(['admin', 'table'], function () {
+        var admin = layui.admin
+            , table = layui.table;
+
+        table.render({
+            elem: '#test-table-page'
+            , url: './api/device/list'
+            , cols: [[
+                {type: 'radio'}
+                , {field: 'master_id', title: 'ID', sort: true}
+                , {field: 'master_sn', title: '设备SN'}
+                , {field: 'master_key', title: '设备密钥'}
+                , {field: 'master_outcome', title: '当前状态', sort: true, templet: '#devicestate'}
+                , {field: 'master_change', title: '设置状态', sort: true, templet: '#setstate'}
+                , {field: 'master_time', title: '上线时间', sort: true}
+                , {field: 'master_ip', title: 'ip地址'}
+            ]]
+            , page: true
+        });
+    });
+</script>

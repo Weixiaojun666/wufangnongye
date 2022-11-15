@@ -1,0 +1,351 @@
+<script>
+    class postdata {
+        constructor(url) {
+            var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+            httpRequest.open('POST', url, true); //第二步：打开连接
+            httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+            httpRequest.send('name=teswe&ee=ef');//发送请求 将情头体写在send中
+            /**
+             * 获取数据后的处理程序
+             */
+            httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
+                    var json = httpRequest.responseText;//获取到服务端返回的数据
+                    console.log(json);
+                }
+            };
+        }
+    }
+
+    function subs1() {
+        new postdata("../api/upload?switch=1");
+        //document.getElementById("s1").submit();
+    }
+
+    function subs2() {
+        new postdata("../api/upload?switch=2");
+    }
+
+    function subs3() {
+        new postdata("../api/upload?switch=3");
+
+    }
+
+    function subs4() {
+        new postdata("../api/upload?switch=4");
+    }
+
+    function subs5() {
+        new postdata("../api/upload?switch=5");
+    }
+
+    function subs6() {
+        new postdata("../api/upload?switch=6");
+    }
+
+    function subs7() {
+        new postdata("../api/upload?switch=7");
+
+    }
+
+    function subs8() {
+        new postdata("../api/upload?switch=8");
+    }
+</script>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md8">
+            <div class="layui-row layui-col-space15">
+
+                <div class="layui-card">
+                    <div class="layui-card-header">传感器</div>
+                    <div class="layui-card-body">
+
+                        <div class="layui-carousel layadmin-carousel layadmin-backlog">
+                            <div carousel-item id="sensor">
+                                <ul class="layui-row layui-col-space10">
+                                    <script lay-url="./api/main1" template type="text/html">
+
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n1.sensor_type}}</h3>
+
+                                                {{# if(d.data.n1.color === '1'){ }}
+                                                <p><cite>{{d.data.n1.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n1.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n2.sensor_type}}</h3>
+
+                                                {{# if(d.data.n2.color === '1'){ }}
+                                                <p><cite>{{d.data.n2.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n2.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n3.sensor_type}}</h3>
+
+                                                {{# if(d.data.n3.color === '1'){ }}
+                                                <p><cite>{{d.data.n3.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n3.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n4.sensor_type}}</h3>
+
+                                                {{# if(d.data.n4.color === '1'){ }}
+                                                <p><cite>{{d.data.n4.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n4.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n5.sensor_type}}</h3>
+
+                                                {{# if(d.data.n5.color === '1'){ }}
+                                                <p><cite>{{d.data.n5.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n5.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n6.sensor_type}}</h3>
+
+                                                {{# if(d.data.n6.color === '1'){ }}
+                                                <p><cite>{{d.data.n6.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n6.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n7.sensor_type}}</h3>
+
+                                                {{# if(d.data.n7.color === '1'){ }}
+                                                <p><cite>{{d.data.n7.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n7.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="#" class="layadmin-backlog-body">
+                                                <h3>{{d.data.n8.sensor_type}}</h3>
+
+                                                {{# if(d.data.n8.color === '1'){ }}
+                                                <p><cite>{{d.data.n6.numerical}}</cite></p>
+                                                {{# } else { }}
+                                                <p><cite id="vaule8"
+                                                         style="color: #FF5722;">{{d.data.n8.numerical}}</cite></p>
+                                                {{# } }}
+                                            </a>
+                                        </li>
+                                    </script>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-card">
+                    <div class="layui-card-header">云开关</div>
+                    <div class="layui-card-body">
+                        <div class="layui-carousel layadmin-carousel layadmin-shortcut">
+                            <div carousel-item>
+                                <ul class="layui-row layui-col-space10">
+                                    <script lay-url="./api/main2" template type="text/html">
+
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s1.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s1.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s2.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s2.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s3.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s3.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s4.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s4.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s5.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s5.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s6.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s6.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s7.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s7.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:subs1();">
+                                                {{# if(d.data.s8.switch_type === '1'){ }}
+                                                <i class="layui-icon layui-icon-ok"></i>
+                                                {{# } else { }}
+                                                <i class="layui-icon layui-icon-close"></i>
+                                                {{# } }}
+                                                <cite>{{d.data.s8.switch_outcome}}</cite>
+                                            </a>
+                                        </li>
+                                    </script>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="layui-col-md4">
+            <div class="layui-card">
+                <div class="layui-card-header">设备信息</div>
+                <div class="layui-carousel layadmin-carousel layadmin-backlog">
+                    <div carousel-item>
+                        <ul class="layui-row layui-col-space10">
+                            <script lay-url="./content.json" template type="text/html">
+                                <li class="layui-col-xs6">
+                                    <a lay-href="app/content/comment" class="layadmin-backlog-body">
+                                        <h3>网关总数</h3>
+                                        <p><cite>{{d.data.info.master}}</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-xs6">
+                                    <a lay-href="app/content/comment" class="layadmin-backlog-body">
+                                        <h3>总端总数</h3>
+                                        <p><cite>{{d.data.info.equipment}}</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-xs6">
+                                    <a lay-href="app/content/comment" class="layadmin-backlog-body">
+                                        <h3>传感器总数</h3>
+                                        <p><cite>{{d.data.info.sensor}}</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-xs6">
+                                    <a lay-href="app/content/comment" class="layadmin-backlog-body">
+                                        <h3>云开关总数</h3>
+                                        <p><cite>{{d.data.info.switch}}</cite></p>
+                                    </a>
+                                </li>
+                            </script>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div style="display:'none'">
+    <form action="../api/upload/switch/1" id="s1" method="post"></form>
+    <form action="../api/upload/switch/2" id="s2" method="post"></form>
+    <form action="../api/upload/switch/3" id="s3" method="post"></form>
+    <form action="../api/upload/switch/4" id="s4" method="post"></form>
+    <form action="../api/upload/switch/5" id="s5" method="post"></form>
+    <form action="../api/upload/switch/6" id="s6" method="post"></form>
+    <form action="../api/upload/switch/7" id="s7" method="post"></form>
+    <form action="../api/upload/switch/8" id="s8" method="post"></form>
+</div>
+</script>
+
+<script>
+    //加载 controller 目录下的对应模块
+    /*
+
+      小贴士：
+        这里 console 模块对应 的 console.js 并不会重复加载，
+        然而该页面的视图则是重新插入到容器，那如何保证能重新来控制视图？有两种方式：
+          1): 借助 layui.factory 方法获取 console 模块的工厂（回调函数）给 layui.use
+          2): 直接在 layui.use 方法的回调中书写业务代码，即:
+              layui.use('console', function(){
+                //同 console.js 中的 layui.define 回调中的代码
+              });
+
+      这里我们采用的是方式1。其它很多视图中采用的其实都是方式2，因为更简单些，也减少了一个请求数。
+
+    */
+    layui.use('console', layui.factory('console'));
+
+</script>
